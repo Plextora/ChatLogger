@@ -2,5 +2,5 @@
   "name": "chatlogger",
   "version": "0.0.0",
   "author": "Plextora",
-  "description": "Logs all chat messages to a file"
+  "description": "Logs all chat messages to a file (adapted from Eclipse's EventLogger)"
 }

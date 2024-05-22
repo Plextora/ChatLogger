@@ -1,7 +1,7 @@
 {
   "name": "chatlogger",
   "version": "0.0.0",
-  "description": "Logs all chat messages to a file",
+  "description": "Logs all chat messages to a file (adapted from Eclipse's EventLogger)",
   "main": "index.js",
   "type": "module",
   "scripts": {

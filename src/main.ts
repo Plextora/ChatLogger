@@ -1,5 +1,12 @@
 const fs = require("filesystem");
 
+const module: Module = new Module(
+  "ChatLogger",
+  "Chat Logger",
+  "Logs all chat messages to a file (adapted from Eclipse's EventLogger)",
+  KeyCode.None
+);
+
 fs.write("log.txt", util.stringToBuffer("")); // initializes file
 
 function logToFile(text: string) {
@@ -13,5 +20,11 @@ function logToFile(text: string) {
     return;
   }
 }
+
+client.on("receive-chat", (ev) => {
+  if (ev.isChat && module.isEnabled()) {
+    logToFile(ev.message);
+  }
+});
 
 export {}; // Leave this here to fix name conflicts
