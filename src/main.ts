@@ -15,10 +15,12 @@ const module: Module = new Module(
 
 let formatString = "MM/DD/YYYY, hh:mm:ss A";
 
-fs.write(
-  `chatlog-${moment().format("YYYY-MM-DD")}.log`,
-  util.stringToBuffer("")
-); // initializes file
+if (!fs.exists(`chatlog-${moment().format("YYYY-MM-DD")}.log`)) {
+  fs.write(
+    `chatlog-${moment().format("YYYY-MM-DD")}.log`,
+    util.stringToBuffer("")
+  ); // initializes file
+}
 
 function logToFile(text: string) {
   if (fs.exists(`chatlog-${moment().format("YYYY-MM-DD")}.log`)) {
