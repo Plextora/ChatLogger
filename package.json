@@ -1,0 +1,17 @@
+{
+  "name": "chatlogger",
+  "version": "0.0.0",
+  "description": "Logs all chat messages to a file",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc && copy .\\src\\plugin.json .\\out\\plugin.json"
+  },
+  "devDependencies": {
+    "tslib": "^2.6.0",
+    "typescript": "^5.1.3"
+  },
+  "dependencies": {
+    "@latitescripting/latiteapi": "^2.0.2"
+  }
+}
