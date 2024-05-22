@@ -13,7 +13,7 @@ const module: Module = new Module(
   KeyCode.None
 );
 
-let formatString = "MMMM DD, YYYY, hh:mm:ss A";
+let formatString = "MM/DD/YYYY, hh:mm:ss A";
 
 fs.write(
   `chatlog-${moment().format("YYYY-MM-DD")}.log`,
@@ -28,8 +28,12 @@ function logToFile(text: string) {
       util.stringToBuffer(text.concat("\n"))
     );
   } else {
-    client.showNotification(
-      "ChatLogger: Something went horribly wrong when attempting to log"
+    // attempt to initalize file again because im assuming the user
+    // at this point has spent 24+ hours ingame so we need to make
+    // another file (i have not tested this)
+    fs.write(
+      `chatlog-${moment().format("YYYY-MM-DD")}.log`,
+      util.stringToBuffer("")
     );
     return;
   }
