@@ -15,12 +15,18 @@ const module: Module = new Module(
 
 let formatString = "MMMM DD, YYYY, hh:mm:ss A";
 
-fs.write("log.txt", util.stringToBuffer("")); // initializes file
+fs.write(
+  `chatlog-${moment().format("YYYY-MM-DD")}.log`,
+  util.stringToBuffer("")
+); // initializes file
 
 function logToFile(text: string) {
-  if (fs.exists("log.txt")) {
+  if (fs.exists(`chatlog-${moment().format("YYYY-MM-DD")}.log`)) {
     // append to file
-    fs.append("log.txt", util.stringToBuffer(text.concat("\n")));
+    fs.append(
+      `chatlog-${moment().format("YYYY-MM-DD")}.log`,
+      util.stringToBuffer(text.concat("\n"))
+    );
   } else {
     client.showNotification(
       "ChatLogger: Something went horribly wrong when attempting to log"
